@@ -38,7 +38,8 @@ def find_idx_two_subarrays_same_sum_op_res(array_iter: Iterable[int]) -> int:
     res_idx = error_case
     for idx, value in enumerate(array_list[1:-1]):  # O(n) time complexity
         if first_accum == second_accum:
-            res_idx = idx
+            # Sum one since the index starts from 1
+            res_idx = idx + 1
             break
 
         first_subarray.append(value)
@@ -78,7 +79,8 @@ def find_idx_two_subarrays_same_sum_op_res(array_iter: Iterable[int]) -> int:
 #     res_idx = error_case
 #     for idx, value in enumerate(array_list[1:-1]):  # O(n) time complexity
 #         if first_accum == second_accum:
-#             res_idx = idx
+#             # Sum one since the index starts from 1
+#             res_idx = idx + 1
 #             break
 #
 #         if idx == len(array_list) - 2:
