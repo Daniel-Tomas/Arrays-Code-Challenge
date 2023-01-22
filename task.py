@@ -29,13 +29,14 @@ def find_idx_two_subarrays_same_sum_op_res(array_iter: Iterable[int]) -> int:
     if len(array_list) < 3:
         return error_case
 
-    first_accum = 0
-    second_accum = sum(array_list[1:])  # O(n) time complexity
-    first_subarray = deque()
-    second_subarray = deque(array_list[1:])  # O(n) space complexity
+    first_accum = array_list[0]
+    first_subarray = deque((array_list[0],))
+
+    second_accum = sum(array_list[2:])  # O(n) time complexity
+    second_subarray = deque(array_list[2:])  # O(n) space complexity
 
     res_idx = error_case
-    for idx, value in enumerate(array_list[:-1]):  # O(n) time complexity
+    for idx, value in enumerate(array_list[1:-1]):  # O(n) time complexity
         if first_accum == second_accum:
             res_idx = idx
             break
@@ -66,13 +67,16 @@ def find_idx_two_subarrays_same_sum_op_res(array_iter: Iterable[int]) -> int:
 #     if len(array_list) < 3:
 #         return error_case
 #
+#
 #     first_accum = op.accum_initializer
+#     first_subarray = deque((array_list[0],))
+#
 #     second_accum = ...  # Not needed
-#     first_subarray = deque()
-#     second_subarray = deque(array_list[1:])  # O(n) space complexity
+#     second_subarray = deque(array_list[2:])  # O(n) space complexity
+#
 #
 #     res_idx = error_case
-#     for idx, value in enumerate(array_list[:-1]):  # O(n) time complexity
+#     for idx, value in enumerate(array_list[1:-1]):  # O(n) time complexity
 #         if first_accum == second_accum:
 #             res_idx = idx
 #             break
